@@ -1,0 +1,5 @@
+name: WinterSk
+main: io.github.winterbear.wintersk.WinterSk
+version: 1.0
+commands:
+depend: [Skript]
