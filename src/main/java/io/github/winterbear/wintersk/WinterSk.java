@@ -8,6 +8,7 @@ package io.github.winterbear.wintersk;
 import ch.njol.skript.Skript;
 import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.util.EnchantmentType;
+import io.github.winterbear.wintersk.AdvancedBan.IsBannedExpression;
 import io.github.winterbear.wintersk.AdvancedBan.KickReasonExpression;
 import io.github.winterbear.wintersk.CoreProtect.CoreProtectLogBreak;
 import io.github.winterbear.wintersk.CoreProtect.CoreProtectLogChat;
@@ -38,6 +39,7 @@ public class WinterSk extends JavaPlugin{
             Skript.registerExpression(ExprEnchantLevelInEnchBook.class,Integer.class,ExpressionType.PROPERTY,"level of %enchantmenttype% within %itemstack%");
             Skript.registerExpression(ExprEnchantsInEnchBook.class,EnchantmentType.class,ExpressionType.PROPERTY,"enchants within %itemstack%");
             Skript.registerExpression(KickReasonExpression.class, String.class, ExpressionType.SIMPLE, KickReasonExpression.MessageType.patterns);
+            Skript.registerExpression(IsBannedExpression.class, Boolean.class, ExpressionType.SIMPLE, "advanced ban status of %player%");
             //Skript.registerEvent("Achievement Award", AdvancedBanEvent.class, PlayerAchievementAwardedEvent.class, "achieve[ment] [%-achievement%] award", "award of achieve[ment] [%-achievement%]");
             //EventValues.registerEventValue(PlayerAchievementAwardedEvent.class, Player.class, new Getter<Player, PlayerAchievementAwardedEvent>() {
             //           public Player get(PlayerAchievementAwardedEvent e) {
