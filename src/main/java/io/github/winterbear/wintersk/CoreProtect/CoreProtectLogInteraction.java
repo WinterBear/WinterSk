@@ -3,14 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package io.github.winterbear.wintersk;
+package io.github.winterbear.wintersk.CoreProtect;
 
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
+import io.github.winterbear.wintersk.CoreProtect.CoreProtectEffect;
 import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 
@@ -18,27 +17,25 @@ import org.bukkit.event.Event;
  *
  * @author WinterBear | winterbear.github.io
  */
-public class CoreProtectLogPlace extends CoreProtectEffect{
+public class CoreProtectLogInteraction extends CoreProtectEffect {
     
-    private Expression<Player> player;
-    private Expression<Location> location;
-    private Expression<Block> block;
+    Expression<Player> player;
+    Expression<Location> location;
 
     @Override
     protected void execute(Event event) {
-        getCoreProtect().logPlacement(player.getSingle(event).getName(), location.getSingle(event), block.getSingle(event).getType(), block.getSingle(event).getData());
+        getCoreProtect().logInteraction(player.getSingle(event).getName(), location.getSingle(event));
     }
 
     @Override
     public String toString(Event event, boolean bln) {
-        return "Logs a coreprotect place event";
+        return "Logs a coreprotect interaction";
     }
 
     @Override
     public boolean init(Expression<?>[] exprsns, int i, Kleenean kln, SkriptParser.ParseResult pr) {
-        block = (Expression<Block>) exprsns[0];
-        location = (Expression<Location>) exprsns[1];
-        player = (Expression<Player>) exprsns[2];
+        location = (Expression<Location>) exprsns[0];
+        player = (Expression<Player>) exprsns[1];
         return true;
     }
     

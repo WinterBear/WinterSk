@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package io.github.winterbear.wintersk;
+package io.github.winterbear.wintersk.CoreProtect;
 
 import ch.njol.skript.lang.Effect;
 import net.coreprotect.CoreProtect;
