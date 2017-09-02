@@ -40,6 +40,7 @@ public class WinterSk extends JavaPlugin{
             Skript.registerExpression(ExprEnchantsInEnchBook.class,EnchantmentType.class,ExpressionType.PROPERTY,"enchants within %itemstack%");
             Skript.registerExpression(KickReasonExpression.class, String.class, ExpressionType.SIMPLE, KickReasonExpression.MessageType.patterns);
             Skript.registerExpression(IsBannedExpression.class, Boolean.class, ExpressionType.SIMPLE, "advanced ban status of %player%");
+            Skript.registerExpression(IsBannedExpression.class, Boolean.class, ExpressionType.SIMPLE, "creature owner of %entity%");
             //Skript.registerEvent("Achievement Award", AdvancedBanEvent.class, PlayerAchievementAwardedEvent.class, "achieve[ment] [%-achievement%] award", "award of achieve[ment] [%-achievement%]");
             //EventValues.registerEventValue(PlayerAchievementAwardedEvent.class, Player.class, new Getter<Player, PlayerAchievementAwardedEvent>() {
             //           public Player get(PlayerAchievementAwardedEvent e) {
