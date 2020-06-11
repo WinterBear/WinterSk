@@ -5,6 +5,7 @@ import ch.njol.skript.lang.SkriptParser;
 import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
 import org.bukkit.Bukkit;
+import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Tameable;
@@ -12,6 +13,8 @@ import org.bukkit.entity.Wolf;
 import org.bukkit.event.Event;
 
 import javax.naming.ldap.ExtendedRequest;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by WinterBear on 28/01/2017.

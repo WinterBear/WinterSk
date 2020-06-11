@@ -31,22 +31,20 @@ public class WinterSk extends JavaPlugin{
     @Override
     public void onEnable() {
         if (Bukkit.getPluginManager().getPlugin("Skript") != null) {
-            Skript.registerEffect(CoreProtectLogChat.class, "coreprotectlog chat %string% [from] %player%");
-            Skript.registerEffect(CoreProtectLogInteraction.class, "coreprotectlog interaction [at] %location% [by] %player%");
-            Skript.registerEffect(CoreProtectLogBreak.class, "coreprotectlog break %block% [at] %location% [by] %player%");
-            Skript.registerEffect(CoreProtectLogPlace.class, "coreprotectlog place %block% [at] %location% [by] %player%");
+            if (Bukkit.getPluginManager().getPlugin("CoreProtect") != null) {
+                Skript.registerEffect(CoreProtectLogChat.class, "coreprotectlog chat %string% [from] %player%");
+                Skript.registerEffect(CoreProtectLogInteraction.class, "coreprotectlog interaction [at] %location% [by] %player%");
+                Skript.registerEffect(CoreProtectLogBreak.class, "coreprotectlog break %block% [at] %location% [by] %player%");
+                Skript.registerEffect(CoreProtectLogPlace.class, "coreprotectlog place %block% [at] %location% [by] %player%");
+            } else {
+                    Bukkit.getLogger().info("WinterSk: CoreProtect not found... not registering hooks");
+            }
             Skript.registerExpression(ExprEnchBookWithEnch.class,ItemStack.class, ExpressionType.PROPERTY,"%itemstack% containing %enchantmenttypes%");
             Skript.registerExpression(ExprEnchantLevelInEnchBook.class,Integer.class,ExpressionType.PROPERTY,"level of %enchantmenttype% within %itemstack%");
             Skript.registerExpression(ExprEnchantsInEnchBook.class,EnchantmentType.class,ExpressionType.PROPERTY,"enchants within %itemstack%");
-            Skript.registerExpression(KickReasonExpression.class, String.class, ExpressionType.SIMPLE, KickReasonExpression.MessageType.patterns);
-            Skript.registerExpression(IsBannedExpression.class, Boolean.class, ExpressionType.SIMPLE, "advanced ban status of %player%");
-            Skript.registerExpression(IsBannedExpression.class, Boolean.class, ExpressionType.SIMPLE, "creature owner of %entity%");
-            //Skript.registerEvent("Achievement Award", AdvancedBanEvent.class, PlayerAchievementAwardedEvent.class, "achieve[ment] [%-achievement%] award", "award of achieve[ment] [%-achievement%]");
-            //EventValues.registerEventValue(PlayerAchievementAwardedEvent.class, Player.class, new Getter<Player, PlayerAchievementAwardedEvent>() {
-            //           public Player get(PlayerAchievementAwardedEvent e) {
-            Bukkit.getLogger().info("WinterSk loaded successfully!");
+            Bukkit.getLogger().info("WinterSk: Loaded successfully!");
         } else {
-            Bukkit.getLogger().info("WinterSk failed to load - Skript is not installed!");
+            Bukkit.getLogger().info("WinterSk: Failed to load - Skript is not installed!");
         }
     }
     // Fired when plugin is disabled
